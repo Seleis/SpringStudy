@@ -1,9 +1,13 @@
 package ru.vasilev.study;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MusicPlayer {
+    private Music music;
     private List<Music> musicList = new ArrayList<>();
 
     private String name;
@@ -12,8 +16,14 @@ public class MusicPlayer {
     public MusicPlayer() {
     }
 
+
     public MusicPlayer(List<Music> musicList) {
         this.musicList = musicList;
+    }
+
+    public MusicPlayer(Music music) {
+        this.music = music;
+        this.musicList = List.of(music);
     }
 
     public void playMusic() {
@@ -43,4 +53,6 @@ public class MusicPlayer {
     public void setVolume(int volume) {
         this.volume = volume;
     }
+
+
 }
